@@ -39,22 +39,22 @@ pipeline {
             }
         }
 
-        // stage('Build'){
+        stage('Build'){
 
-        //     environment {
-        //         DOCKER_CRED = credentials('Dawei-Dockerhub')
-        //         }
+            environment {
+                DOCKER_CRED = credentials('Dawei-Dockerhub')
+                }
             
-        //     steps{
-        //         echo 'Building'
-        //         sh '''
-        //             . ${VIRTUALENV}/bin/activate
-        //             docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
-        //             docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
-        //             docker push ${DOCKER_CRED_USR}/webpage:latest
-        //         '''
-        //     }
-        // }
+            steps{
+                echo 'Building'
+                sh '''
+                    . ${VIRTUALENV}/bin/activate
+                    docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
+                    docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
+                    docker push ${DOCKER_CRED_USR}/webpage:latest
+                '''
+            }
+        }
         
         // stage('Deploy'){
 
