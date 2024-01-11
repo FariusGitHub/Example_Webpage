@@ -42,7 +42,7 @@ pipeline {
         stage('Build'){
 
             environment {
-                DOCKER_CRED = credentials('Dawei-Dockerhub')
+                DOCKER_CRED = credentials('Farius-Dockerhub')
                 }
             
             steps{
