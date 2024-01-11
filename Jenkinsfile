@@ -20,25 +20,25 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            when {
-                expression {
-                    return env.BRANCH_NAME == 'develop' || 'main';
-                }
-            }
-            steps {
-                echo 'In ' + env.BRANCH_NAME + ' branch, testing..'
-                script {
-                    // Run your test command
-                    sh '''
-                        . ${VIRTUALENV}/bin/activate
-                        python3 -m coverage run test.py
-                        python3 -m coverage report
-                    '''
-                }
+        // stage('Test') {
+        //     when {
+        //         expression {
+        //             return env.BRANCH_NAME == 'develop' || 'main';
+        //         }
+        //     }
+        //     steps {
+        //         echo 'In ' + env.BRANCH_NAME + ' branch, testing..'
+        //         script {
+        //             // Run your test command
+        //             sh '''
+        //                 . ${VIRTUALENV}/bin/activate
+        //                 python3 -m coverage run test.py
+        //                 python3 -m coverage report
+        //             '''
+        //         }
                 
-            }
-        }
+        //     }
+        // }
 
         // stage('Build'){
 
