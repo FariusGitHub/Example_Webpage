@@ -49,9 +49,13 @@ pipeline {
                 echo 'Building'
                 sh '''
                     . ${VIRTUALENV}/bin/activate
-                    docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
-                    docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
-                    docker push ${DOCKER_CRED_USR}/webpage:latest
+
+                    echo ${DOCKER_CRED_USR}
+                    echo password ${DOCKER_CRED_PSW}
+                    
+                    // docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
+                    // docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
+                    // docker push ${DOCKER_CRED_USR}/webpage:latest
                 '''
             }
         }
