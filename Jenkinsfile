@@ -42,7 +42,7 @@ pipeline {
         stage('Build'){
 
             environment {
-                DOCKER_CRED = credentials('Farius-Dockerhub')
+                DOCKER_CRED = credentials('Farius-DockerHub')
                 }
             
             steps{
@@ -61,7 +61,7 @@ pipeline {
             environment {
                 STAGING_INSTANCE_IP = credentials('STAGING_INSTANCE_IP')
                 PROD_INSTANCE_IP = credentials('PROD_INSTANCE_IP')
-                DOCKER_CRED = credentials('Farius-Dockerhub')
+                DOCKER_CRED = credentials('Farius-DockerHub')
                 }
             steps{
                 script{
