@@ -59,8 +59,9 @@ pipeline {
         stage('Deploy'){
 
             environment {
-                STAGING_INSTANCE_IP = credentials('STAGING_INSTANCE_IP')
-                PROD_INSTANCE_IP = credentials('PROD_INSTANCE_IP')
+                STAGING_INSTANCE_IP = '6de04cd8225f'
+                // STAGING_INSTANCE_IP = credentials('STAGING_INSTANCE_IP')
+                // PROD_INSTANCE_IP = credentials('PROD_INSTANCE_IP')
                 DOCKER_CRED = credentials('Farius-DockerHub')
                 }
             steps{
@@ -70,18 +71,22 @@ pipeline {
                     sh '''
                         eval "$(ssh-agent -s)"
                         ssh-add ~/.ssh/id_rsa
-                        ssh -o StrictHostKeyChecking=no ubuntu@$STAGING_INSTANCE_IP "docker ps -a --format '{{.Names}}' | grep -q my-container && docker stop my-container && docker rm my-container || true"
-                        ssh -o StrictHostKeyChecking=no ubuntu@$STAGING_INSTANCE_IP "docker pull $DOCKER_CRED_USR/webpage:latest && docker run --name my-container -d -p 80:80 $DOCKER_CRED_USR/webpage:latest"
+
+                        ssh -o StrictHostKeyChecking=no root@$STAGING_INSTANCE_IP "docker ps -a --format '{{.Names}}' | grep -q my-container && docker stop my-container && docker rm my-container || true"
+                        ssh -o StrictHostKeyChecking=no root@$STAGING_INSTANCE_IP "docker pull $DOCKER_CRED_USR/webpage:latest && docker run --name my-container -d -p 80:80 $DOCKER_CRED_USR/webpage:latest"
+                        
+                        // ssh -o StrictHostKeyChecking=no ubuntu@$STAGING_INSTANCE_IP "docker ps -a --format '{{.Names}}' | grep -q my-container && docker stop my-container && docker rm my-container || true"
+                        // ssh -o StrictHostKeyChecking=no ubuntu@$STAGING_INSTANCE_IP "docker pull $DOCKER_CRED_USR/webpage:latest && docker run --name my-container -d -p 80:80 $DOCKER_CRED_USR/webpage:latest"
                         '''
                     }
-                    else if (env.BRANCH_NAME == 'main'){
-                    sh '''
-                        eval "$(ssh-agent -s)"
-                        ssh-add ~/.ssh/id_rsa
-                        ssh -o StrictHostKeyChecking=no ubuntu@$PROD_INSTANCE_IP "docker ps -a --format '{{.Names}}' | grep -q my-container && docker stop my-container && docker rm my-container || true"
-                        ssh -o StrictHostKeyChecking=no ubuntu@$PROD_INSTANCE_IP "docker pull $DOCKER_CRED_USR/webpage:latest && docker run --name my-container -d -p 80:80 $DOCKER_CRED_USR/webpage:latest"
-                        '''
-                    }
+                    // else if (env.BRANCH_NAME == 'main'){
+                    // sh '''
+                    //     eval "$(ssh-agent -s)"
+                    //     ssh-add ~/.ssh/id_rsa
+                    //     ssh -o StrictHostKeyChecking=no ubuntu@$PROD_INSTANCE_IP "docker ps -a --format '{{.Names}}' | grep -q my-container && docker stop my-container && docker rm my-container || true"
+                    //     ssh -o StrictHostKeyChecking=no ubuntu@$PROD_INSTANCE_IP "docker pull $DOCKER_CRED_USR/webpage:latest && docker run --name my-container -d -p 80:80 $DOCKER_CRED_USR/webpage:latest"
+                    //     '''
+                    // }
                 }
             }
         }
