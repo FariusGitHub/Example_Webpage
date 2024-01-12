@@ -2,9 +2,6 @@ provider "aws" {
   region     = "us-east-1"
   access_key = jsondecode(file("aws.credentials")).access
   secret_key = jsondecode(file("aws.credentials")).secret
-
-  # access_key = "AKIAVWBHEC3Q7DYNQ6ET"
-  # secret_key = "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"
 }
 
 resource "aws_vpc" "vpc-project6" {
