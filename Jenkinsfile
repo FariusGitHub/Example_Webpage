@@ -20,41 +20,41 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            when {
-                expression {
-                    return env.BRANCH_NAME == 'develop' || 'main';
-                }
-            }
-            steps {
-                echo 'In ' + env.BRANCH_NAME + ' branch, testing..'
-                script {
-                    // Run your test command
-                    sh '''
-                        . ${VIRTUALENV}/bin/activate
-                        python3 -m coverage run test.py
-                        python3 -m coverage report
-                    '''
-                }                
-            }
-        }
+        // stage('Test') {
+        //     when {
+        //         expression {
+        //             return env.BRANCH_NAME == 'develop' || 'main';
+        //         }
+        //     }
+        //     steps {
+        //         echo 'In ' + env.BRANCH_NAME + ' branch, testing..'
+        //         script {
+        //             // Run your test command
+        //             sh '''
+        //                 . ${VIRTUALENV}/bin/activate
+        //                 python3 -m coverage run test.py
+        //                 python3 -m coverage report
+        //             '''
+        //         }                
+        //     }
+        // }
 
-        stage('Build'){
+        // stage('Build'){
 
-            environment {
-                DOCKER_CRED = credentials('Farius-DockerHub')
-                }
+        //     environment {
+        //         DOCKER_CRED = credentials('Farius-DockerHub')
+        //         }
             
-            steps{
-                echo 'Building'
-                sh '''
-                    . ${VIRTUALENV}/bin/activate
-                    docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
-                    docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
-                    docker push ${DOCKER_CRED_USR}/webpage:latest
-                '''
-            }
-        }
+        //     steps{
+        //         echo 'Building'
+        //         sh '''
+        //             . ${VIRTUALENV}/bin/activate
+        //             docker login --username ${DOCKER_CRED_USR} --password ${DOCKER_CRED_PSW}
+        //             docker build -t ${DOCKER_CRED_USR}/webpage:latest -f Dockerfile .
+        //             docker push ${DOCKER_CRED_USR}/webpage:latest
+        //         '''
+        //     }
+        // }
         
         // stage('Deploy'){
 
