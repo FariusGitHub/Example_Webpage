@@ -386,14 +386,12 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 </center>
 <br>
 
-## Appendix : Container A and Container B
+## SUMMARY
 
 ![](/images/01-image19.png)
 <center>
   Fig 20: Switching from Container A to Container B and vice versa
 </center>
-<br>
-
 | Left columns  | Container A                 | Container B
 | ------------- |:----------------------------|:-------------
 | linux command | docker stop container_B_id  | docker stop container_A_id
