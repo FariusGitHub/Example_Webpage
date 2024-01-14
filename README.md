@@ -8,3 +8,12 @@ coverage report
 
 # run the container
 docker run -d -p 80:80 junglepolice/webpage
+
+
+# This is a title
+
+**paragraph 1**
+
+*paragraph 2*
+
+paragraph 3
