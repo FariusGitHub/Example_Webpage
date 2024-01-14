@@ -20,6 +20,6 @@ docker run -d -p 80:80 junglepolice/webpage
 
 *[paragraph 4](https://www.bing.com)*
 
-```sh
-cd popquiz
-```
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
