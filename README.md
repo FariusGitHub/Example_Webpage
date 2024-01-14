@@ -394,7 +394,7 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 </center>
 <br><br>
 
-| Left columns  | Container A                 | Container B
+|               | Container A                 | Container B
 | ------------- |:----------------------------|:-------------
 | linux command | docker stop container_B_id  | docker stop container_A_id
 |               | docker start container_A_id | docker start container_B_id
