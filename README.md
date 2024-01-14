@@ -387,7 +387,7 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 </center>
 <br>
 
-## Appendix : Container A and Container B
+## SUMMARY
 
 ![](/images/01-image19.png)
 <center>
