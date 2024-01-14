@@ -19,3 +19,7 @@ docker run -d -p 80:80 junglepolice/webpage
 [*paragraph 3*](https://www.linkedin.com)
 
 *[paragraph 4](https://www.bing.com)*
+
+```sh
+cd popquiz
+```
