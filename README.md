@@ -402,8 +402,9 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 | docker.io     | not installed               | installed through root (DinD)
 | docker ps     | permission denied           | list of active container shown
 
-Docker in Docker (DinD) is not necessarily running Docker inside another Docker.<br>
-In this case, only one container exist at a time. In simple terms, <br>
-Docker Inside Docker involves running Docker within a Docker container. <br>
-Instead of interacting with the host's Docker daemon, a new Docker engine is spawned within a container, <br>
-providing an isolated environment for managing containers and images.
+
+Docker in Docker (DinD) is not necessarily running container inside another container.<br>
+In this case, only one container exist at a time (as seen in docker ps). In simple terms, <br>
+Docker Inside Docker simply involves running Docker 'commands' within a Docker container. <br>
+Instead of interacting with host Docker daemon, in this case new one is spawned from old one, <br>
+providing an isolated environment for managing containers and images. <br>
