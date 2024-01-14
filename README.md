@@ -1,5 +1,31 @@
 # Jenkins, Docker-in-Docker, WebHook <br>
 
+Thank you to Dawei for introducing Jenkins CI/CD with Docker-in-Docker <br>
+and GitHub Webhooks concept to automate above pipeline
+
+The repository for this project is located [here](https://github.com/FariusGitHub/Example_Webpage).
+
+# Instructions
+
+Follow these steps to set up and run the project:
+
+1.  **Install Terraform**
+
+    Ensure Terraform is installed on your system. If not, you can follow the official [Terraform Installation Guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli).
+
+2.  **Provision resources**
+
+    Below command will run main.tf that provision necessary EC2 to host Jenkins.
+
+```sh
+terraform init
+terraform plan
+terraform apply --auto-approve
+```
+
+3.  **Follow along the subsequent steps below to complete the entire project.**
+
+
 In previous 3 blogs about Jenkins we might learn about the following
 
 * Maven and Gradle in Jenkins (https://medium.com/p/239f2db88773/edit)
