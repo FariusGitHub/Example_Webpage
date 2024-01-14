@@ -392,6 +392,8 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 <center>
   Fig 20: Switching from Container A to Container B and vice versa
 </center>
+<br><br>
+
 | Left columns  | Container A                 | Container B
 | ------------- |:----------------------------|:-------------
 | linux command | docker stop container_B_id  | docker stop container_A_id
@@ -402,5 +404,6 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 Docker in Docker (DinD) is not necessarily running Docker inside another Docker.<br>
 In this case, only one container exist at a time. In simple terms, <br>
 Docker Inside Docker involves running Docker within a Docker container. <br>
-Instead of interacting with the host's Docker daemon, a new Docker engine is spawned within a container, <br>
+Instead of interacting with the host's Docker daemon, <br>
+a new Docker engine is spawned within a container, <br>
 providing an isolated environment for managing containers and images.
