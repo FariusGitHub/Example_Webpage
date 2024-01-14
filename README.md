@@ -393,7 +393,7 @@ As soon as we finished making some changes in GitHub Repo above, in this case I 
 <center>
   Fig 20: Switching from Container A to Container B and vice versa
 </center>
-<br>
+<br><br><br>
 
 | Left columns  | Container A                 | Container B
 | ------------- |:----------------------------|:-------------
